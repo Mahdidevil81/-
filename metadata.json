@@ -1,0 +1,8 @@
+{
+  "name": "Copy of Limitless Potential - Unlocking Inner Power",
+  "description": "An interactive web experience showcasing the growth and unleashing of human potential through AI-driven insights and dynamic visualizations.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
