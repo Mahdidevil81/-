@@ -1,0 +1,21 @@
+
+{
+  "short_name": "آینده‌نگر",
+  "name": "هوش مصنوعی آینده‌نگر",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%2306b6d4'/><text x='50' y='65' font-size='40' text-anchor='middle' fill='white'>🌌</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%2306b6d4'/><text x='50' y='65' font-size='40' text-anchor='middle' fill='white'>🌌</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#010103",
+  "background_color": "#010103"
+}

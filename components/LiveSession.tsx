@@ -28,7 +28,7 @@ export const LiveSession: React.FC<LiveSessionProps> = ({ inline = false }) => {
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
 
     const sessionPromise = ai.live.connect({
-      model: 'gemini-2.5-flash-native-audio-preview-09-2025',
+      model: 'gemini-2.5-flash-native-audio-preview-12-2025',
       callbacks: {
         onopen: () => {
           const source = inputCtx.createMediaStreamSource(stream);
@@ -91,38 +91,21 @@ export const LiveSession: React.FC<LiveSessionProps> = ({ inline = false }) => {
       <div className="flex flex-col gap-6 items-center">
         <div className={`w-full max-h-60 overflow-y-auto bg-black/40 border border-white/5 rounded-2xl p-6 text-right transition-all ${isActive ? 'opacity-100' : 'opacity-30'}`}>
           {transcript.length === 0 ? (
-            <p className="text-gray-500 italic text-center">تاریخچه مکالمه در اینجا ظاهر می‌شود...</p>
+            <p className="text-gray-500 italic text-center">در انتظار برقراری فرکانس...</p>
           ) : (
             transcript.map((t, i) => <p key={i} className="text-sm text-cyan-100/70 mb-2">{t}</p>)
           )}
         </div>
-        
-        <div className="flex flex-col items-center gap-4">
-          <button 
-            onClick={toggleSession}
-            className={`w-24 h-24 rounded-full flex items-center justify-center shadow-2xl transition-all hover:scale-110 active:scale-95 ${isActive ? 'bg-cyan-500 shadow-cyan-500/50 animate-pulse' : 'bg-gradient-to-tr from-cyan-600 to-violet-800 border border-cyan-500/20'}`}
-          >
-            <span className="text-4xl">{isActive ? '⏹️' : '🎙️'}</span>
-          </button>
-          <span className={`text-xs font-bold uppercase tracking-widest ${isActive ? 'text-cyan-400' : 'text-gray-500'}`}>
-            {isActive ? 'در حال دریافت فرکانس...' : 'شروع ارتباط عصبی'}
-          </span>
-        </div>
+        <button onClick={toggleSession} className={`w-24 h-24 rounded-full flex items-center justify-center shadow-2xl transition-all ${isActive ? 'bg-cyan-500 animate-pulse' : 'bg-gradient-to-tr from-cyan-600 to-violet-800'}`}>
+          <span className="text-4xl">{isActive ? '⏹️' : '🎙️'}</span>
+        </button>
       </div>
     );
   }
 
   return (
     <div className="fixed bottom-10 right-10 z-[100]">
-      {isActive && (
-        <div className="absolute bottom-20 right-0 w-80 max-h-96 bg-black/80 backdrop-blur-xl border border-white/10 rounded-3xl p-6 overflow-y-auto mb-4 flex flex-col gap-2">
-          {transcript.map((t, i) => <p key={i} className="text-sm text-gray-300">{t}</p>)}
-        </div>
-      )}
-      <button 
-        onClick={toggleSession}
-        className={`w-20 h-20 rounded-full flex items-center justify-center shadow-2xl transition-all hover:scale-110 active:scale-95 ${isActive ? 'bg-red-500 animate-pulse' : 'bg-gradient-to-tr from-violet-600 to-fuchsia-600'}`}
-      >
+      <button onClick={toggleSession} className={`w-20 h-20 rounded-full flex items-center justify-center shadow-2xl transition-all ${isActive ? 'bg-red-500 animate-pulse' : 'bg-gradient-to-tr from-violet-600 to-fuchsia-600'}`}>
         <span className="text-3xl">{isActive ? '⏹️' : '🎙️'}</span>
       </button>
     </div>
